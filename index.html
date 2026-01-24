@@ -3,544 +3,447 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Tanshai Saxena | Backend Software Developer | Golang | Microservices | Distributed Systems" />
-  <title>Tanshai Saxena</title>
+  <title>Tanshai Saxena | Backend Developer</title>
 
-  <style>
-    :root{
-      --radius: 16px;
-      --shadow: 0 14px 35px rgba(0,0,0,.18);
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      --trans: 160ms ease;
-    }
+  <!-- CSS (Mukul style) -->
+  <link rel="stylesheet" href="assets/css/style.css" />
 
-    /* LIGHT */
-    html[data-theme="light"]{
-      --bg:#f6f7fb;
-      --card:#ffffff;
-      --text:#0b1220;
-      --muted:#51637a;
-      --line:rgba(11,18,32,.12);
-      --soft:rgba(11,18,32,.04);
-      --accent:#2563eb;
-      --accentSoft: rgba(37,99,235,.12);
-    }
+  <!-- Favicon -->
+  <link rel="icon" href="assets/images/favicon.png" />
 
-    /* DARK */
-    html[data-theme="dark"]{
-      --bg:#0b1220;
-      --card:#0f1b2d;
-      --text:#e8eef7;
-      --muted:#9fb1c5;
-      --line:rgba(255,255,255,.12);
-      --soft:rgba(255,255,255,.05);
-      --accent:#60a5fa;
-      --accentSoft: rgba(96,165,250,.14);
-    }
+  <!-- Fonts (matches CSS variables) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
-
-    body{
-      margin:0;
-      font-family: var(--sans);
-      color: var(--text);
-      background: var(--bg);
-      transition: background var(--trans), color var(--trans);
-      line-height:1.55;
-    }
-
-    a{color:inherit; text-decoration:none}
-    a:hover{opacity:.9}
-
-    .wrap{
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 26px 18px 70px;
-    }
-
-    /* Top Nav */
-    .nav{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      padding: 14px 16px;
-      border: 1px solid var(--line);
-      background: var(--card);
-      border-radius: 999px;
-      box-shadow: var(--shadow);
-      position: sticky;
-      top: 14px;
-      z-index: 50;
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      font-weight: 900;
-      letter-spacing: -.02em;
-    }
-
-    .dot{
-      width:10px;
-      height:10px;
-      border-radius:50%;
-      background: var(--accent);
-      box-shadow: 0 0 0 5px var(--accentSoft);
-    }
-
-    .links{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-    }
-
-    .pill{
-      padding: 9px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: var(--soft);
-      font-size: 13px;
-      font-weight: 800;
-      transition: transform var(--trans), background var(--trans);
-    }
-    .pill:hover{transform: translateY(-1px);}
-
-    .toggle{
-      cursor:pointer;
-      padding: 9px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: var(--soft);
-      font-weight: 900;
-      font-size: 13px;
-      transition: transform var(--trans);
-      user-select:none;
-    }
-    .toggle:hover{transform: translateY(-1px);}
-
-    /* Hero */
-    .hero{
-      margin-top: 18px;
-      padding: 24px;
-      border-radius: var(--radius);
-      border: 1px solid var(--line);
-      background: var(--card);
-      box-shadow: var(--shadow);
-    }
-
-    .hero h1{
-      margin:0;
-      font-size: 40px;
-      letter-spacing: -0.03em;
-      line-height: 1.1;
-    }
-
-    .hero p{
-      margin: 12px 0 0;
-      color: var(--muted);
-      font-weight: 650;
-      font-size: 15px;
-      max-width: 70ch;
-    }
-
-    .ctaRow{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-top: 16px;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding: 11px 14px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: var(--soft);
-      font-weight: 900;
-      font-size: 13px;
-      transition: transform var(--trans), background var(--trans);
-    }
-    .btn:hover{transform: translateY(-1px);}
-
-    .btn.primary{
-      background: var(--accentSoft);
-      border-color: rgba(96,165,250,.35);
-    }
-
-    /* Sections */
-    .section{
-      margin-top: 18px;
-      padding: 18px;
-      border-radius: var(--radius);
-      border: 1px solid var(--line);
-      background: var(--card);
-      box-shadow: var(--shadow);
-    }
-
-    .sectionHead{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-      margin-bottom: 12px;
-    }
-
-    .sectionHead h2{
-      margin:0;
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: .12em;
-    }
-
-    .badge{
-      font-family: var(--mono);
-      font-size: 12px;
-      color: var(--muted);
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: var(--soft);
-    }
-
-    /* Experience */
-    .job{
-      padding: 14px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: var(--soft);
-      margin-top: 12px;
-    }
-
-    .jobTop{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:12px;
-    }
-
-    .jobTitle{
-      margin:0;
-      font-weight: 950;
-      font-size: 15px;
-    }
-
-    .jobCompany{
-      margin: 2px 0 0;
-      color: var(--muted);
-      font-weight: 750;
-      font-size: 13px;
-    }
-
-    .jobMeta{
-      font-family: var(--mono);
-      color: var(--muted);
-      font-size: 12px;
-      white-space:nowrap;
-      text-align:right;
-    }
-
-    ul{
-      margin: 10px 0 0;
-      padding-left: 18px;
-      color: var(--text);
-      font-size: 13.5px;
-    }
-    li{margin: 6px 0}
-
-    /* Skills */
-    .tags{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-    }
-    .tag{
-      font-family: var(--mono);
-      font-size: 12px;
-      padding: 8px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: var(--soft);
-    }
-
-    /* Projects */
-    .projGrid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-    @media (max-width: 760px){
-      .projGrid{grid-template-columns:1fr}
-      .hero h1{font-size: 34px;}
-    }
-
-    .proj{
-      padding: 14px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: var(--soft);
-      display:flex;
-      flex-direction:column;
-      gap:8px;
-      min-height: 150px;
-    }
-
-    .proj h3{
-      margin:0;
-      font-size: 14px;
-      font-weight: 950;
-    }
-
-    .proj p{
-      margin:0;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .projLinks{
-      margin-top:auto;
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-
-    .linkBtn{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding: 9px 10px;
-      border-radius: 12px;
-      border: 1px solid var(--line);
-      background: var(--card);
-      font-weight: 900;
-      font-size: 12px;
-      transition: transform var(--trans);
-    }
-    .linkBtn:hover{transform: translateY(-1px);}
-
-    /* Footer */
-    .footer{
-      margin-top: 18px;
-      text-align:center;
-      color: var(--muted);
-      font-size: 12px;
-    }
-  </style>
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
 
 <body>
-  <div class="wrap">
-
-    <!-- NAV -->
-    <header class="nav">
-      <div class="brand">
-        <span class="dot" aria-hidden="true"></span>
-        <span>Tanshai Saxena</span>
-      </div>
-
-      <div class="links">
-        <a class="pill" href="#experience">Experience</a>
-        <a class="pill" href="#skills">Skills</a>
-        <a class="pill" href="#projects">Projects</a>
-        <a class="pill" href="#contact">Contact</a>
-
-        <button class="toggle" id="themeToggle">🌙 Theme</button>
-      </div>
-    </header>
-
-    <!-- HERO -->
-    <section class="hero">
-      <h1>Backend Developer.<br/>Golang • Cloud Native • Observability</h1>
-      <p>
-        Backend Software Developer with 5 years of experience in Golang and Python.
-        I build scalable microservices, distributed systems, and automation workflows with strong focus on reliability,
-        performance, and production debugging.
-      </p>
-
-      <div class="ctaRow">
-        <a class="btn primary" href="./resume.pdf" download>⬇️ Download Resume</a>
-        <a class="btn" href="mailto:tanshai.saxena@gmail.com">✉️ Email</a>
-        <a class="btn" href="tel:+919580838969">📞 Call</a>
-        <a class="btn" href="https://www.linkedin.com/in/tanshai-saxena-55634545/" target="_blank" rel="noreferrer">🔗 LinkedIn</a>
-      </div>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section class="section" id="experience">
-      <div class="sectionHead">
-        <h2>Experience</h2>
-        <span class="badge">2020 → Present</span>
-      </div>
-
-      <div class="job">
-        <div class="jobTop">
-          <div>
-            <p class="jobTitle">Senior Associate Consultant</p>
-            <p class="jobCompany">Infosys Limited</p>
-          </div>
-          <div class="jobMeta">Apr 2025 – Current</div>
-        </div>
-        <ul>
-          <li>Built Router Service to orchestrate multi-phase workflows (dependency resolution, task decomposition, payload generation).</li>
-          <li>Implemented Kafka-based async communication using Go producers/consumers with JSON request/response and timeouts.</li>
-          <li>Developed Executor Service to manage engine lifecycle (timeouts, retries, error propagation) with WASM modules in OCI registries.</li>
-          <li>Optimized MariaDB persistence and improved reliability with Prometheus + Grafana + Kubernetes probes.</li>
-        </ul>
-      </div>
-
-      <div class="job">
-        <div class="jobTop">
-          <div>
-            <p class="jobTitle">Backend Software Developer</p>
-            <p class="jobCompany">TCS (IBM Cloud Project)</p>
-          </div>
-          <div class="jobMeta">Oct 2022 – Mar 2025</div>
-        </div>
-        <ul>
-          <li>Built backend automation & monitoring services using Golang.</li>
-          <li>Implemented alert automation from logs + metrics with Prometheus exporters and rules.</li>
-          <li>Led migration from LogDNA to IBM Cloud Logs (ICL) with smooth transition and compatibility.</li>
-        </ul>
-      </div>
-
-      <div class="job">
-        <div class="jobTop">
-          <div>
-            <p class="jobTitle">Domain Support Specialist</p>
-            <p class="jobCompany">Ericsson Global India Pvt. Ltd.</p>
-          </div>
-          <div class="jobMeta">Dec 2020 – Oct 2022</div>
-        </div>
-        <ul>
-          <li>Optimized Python scripts to validate 3G/4G network elements and improve stability.</li>
-          <li>Reduced ticket volume by 27% and improved operations KPIs to 99.30%.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section class="section" id="skills">
-      <div class="sectionHead">
-        <h2>Skills</h2>
-        <span class="badge">Stack</span>
-      </div>
-
-      <div class="tags">
-        <span class="tag">Golang</span>
-        <span class="tag">Python</span>
-        <span class="tag">Microservices</span>
-        <span class="tag">Distributed Systems</span>
-        <span class="tag">Kafka</span>
-        <span class="tag">MariaDB</span>
-        <span class="tag">Docker</span>
-        <span class="tag">Kubernetes</span>
-        <span class="tag">Prometheus</span>
-        <span class="tag">Grafana</span>
-        <span class="tag">Linux</span>
-        <span class="tag">GitHub</span>
-        <span class="tag">GitLab</span>
-        <span class="tag">IBM Cloud</span>
-        <span class="tag">Ansible</span>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section class="section" id="projects">
-      <div class="sectionHead">
-        <h2>Projects</h2>
-        <span class="badge">GitHub</span>
-      </div>
-
-      <div class="projGrid">
-        <div class="proj">
-          <h3>Router + Executor Platform</h3>
-          <p>Microservices orchestration with Kafka messaging, timeouts, retries, MariaDB state, and observability-first design.</p>
-          <div class="projLinks">
-            <a class="linkBtn" href="#" target="_blank" rel="noreferrer">💻 GitHub</a>
-            <a class="linkBtn" href="#" target="_blank" rel="noreferrer">📌 Details</a>
-          </div>
-        </div>
-
-        <div class="proj">
-          <h3>Alert Automation System</h3>
-          <p>Event-driven alert automation using logs + metrics, Prometheus exporter logic, and SRE-ready dashboards.</p>
-          <div class="projLinks">
-            <a class="linkBtn" href="#" target="_blank" rel="noreferrer">💻 GitHub</a>
-            <a class="linkBtn" href="#" target="_blank" rel="noreferrer">📊 Dashboard</a>
-          </div>
-        </div>
-
-        <div class="proj">
-          <h3>Mobile Augmented Reality</h3>
-          <p>AR learning project using Unity + Vuforia Engine to improve interactive learning for students.</p>
-          <div class="projLinks">
-            <a class="linkBtn" href="#" target="_blank" rel="noreferrer">💻 GitHub</a>
-            <a class="linkBtn" href="#" target="_blank" rel="noreferrer">🎥 Demo</a>
-          </div>
-        </div>
-
-        <div class="proj">
-          <h3>Smart Cart</h3>
-          <p>Automated checkout cart using RFID, Arduino UNO, and ESP32-CAM for scanning and billing.</p>
-          <div class="projLinks">
-            <a class="linkBtn" href="#" target="_blank" rel="noreferrer">💻 GitHub</a>
-            <a class="linkBtn" href="#" target="_blank" rel="noreferrer">🧾 Details</a>
-          </div>
-        </div>
-      </div>
-
-      <p style="margin:12px 0 0; color: var(--muted); font-size: 12px;">
-        Tip: Replace “#” links with your real GitHub repositories.
-      </p>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="section" id="contact">
-      <div class="sectionHead">
-        <h2>Contact</h2>
-        <span class="badge">Let’s connect</span>
-      </div>
-
-      <div class="ctaRow">
-        <a class="btn" href="mailto:tanshai.saxena@gmail.com">✉️ tanshai.saxena@gmail.com</a>
-        <a class="btn" href="tel:+919580838969">📞 +91-9580838969</a>
-        <a class="btn" href="https://www.linkedin.com/in/tanshai-saxena-55634545/" target="_blank" rel="noreferrer">🔗 LinkedIn</a>
-      </div>
-    </section>
-
-    <footer class="footer">
-      © <span id="year"></span> Tanshai Saxena • Built on GitHub Pages
-    </footer>
-
+  <!-- Loader -->
+  <div class="loader" id="loader">
+    <div class="spinner"></div>
   </div>
 
+  <!-- Header -->
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <a href="#hero">TS</a>
+      </div>
+
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a class="nav-link" href="#about">About</a></li>
+          <li><a class="nav-link" href="#experience">Experience</a></li>
+          <li><a class="nav-link" href="#skills">Skills</a></li>
+          <li><a class="nav-link" href="#projects">Projects</a></li>
+          <li><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="theme-toggle" id="themeToggle" title="Toggle theme">
+          <i class="fa-solid fa-moon"></i>
+        </div>
+
+        <div class="mobile-menu" id="mobileMenu" title="Menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="section" id="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>Hi, I'm <span class="highlight">Tanshai Saxena</span></h1>
+        <h2>Backend Software Developer</h2>
+        <p>
+          Backend Developer with 5 years of experience in <b>Golang</b> and <b>Python</b>.
+          I build scalable <b>microservices</b>, <b>distributed systems</b>, and automation workflows with a strong focus on
+          <b>reliability</b>, <b>performance</b>, and <b>observability</b> (Prometheus, Grafana).
+        </p>
+
+        <div class="hero-buttons">
+          <a class="btn primary-btn" href="resume.pdf" download>
+            <i class="fa-solid fa-download"></i> Download Resume
+          </a>
+          <a class="btn secondary-btn" href="#contact">
+            <i class="fa-solid fa-paper-plane"></i> Contact Me
+          </a>
+        </div>
+
+        <div class="social-links">
+          <a class="social-link" href="mailto:tanshai.saxena@gmail.com" title="Email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+          <a class="social-link" href="tel:+919580838969" title="Phone">
+            <i class="fa-solid fa-phone"></i>
+          </a>
+          <a class="social-link" href="https://www.linkedin.com/in/tanshai-saxena-55634545/" target="_blank" rel="noreferrer" title="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <h2>About Me</h2>
+        <div class="underline"></div>
+      </div>
+
+      <div class="about-content">
+        <div class="about-text">
+          <p>
+            I’m a backend engineer focused on building reliable systems in production — from workflow orchestration,
+            Kafka-based asynchronous pipelines, to microservices running on Kubernetes.
+            I enjoy solving real-world engineering problems like timeouts, scaling, observability, and reliability.
+          </p>
+
+          <div class="about-details">
+            <div class="detail-item">
+              <i class="fa-solid fa-code"></i>
+              <span><b>Primary:</b> Golang, Microservices</span>
+            </div>
+            <div class="detail-item">
+              <i class="fa-solid fa-network-wired"></i>
+              <span><b>Messaging:</b> Kafka</span>
+            </div>
+            <div class="detail-item">
+              <i class="fa-solid fa-cubes"></i>
+              <span><b>Platform:</b> Docker, Kubernetes</span>
+            </div>
+            <div class="detail-item">
+              <i class="fa-solid fa-chart-line"></i>
+              <span><b>Obs:</b> Prometheus, Grafana</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="section" id="experience">
+    <div class="container">
+      <div class="section-header">
+        <h2>Experience</h2>
+        <div class="underline"></div>
+      </div>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div class="timeline-title">Senior Associate Consultant</div>
+            <div class="timeline-period">Apr 2025 – Current</div>
+          </div>
+          <div class="timeline-company">Infosys Limited</div>
+          <div class="timeline-description">
+            Backend orchestration services for multi-phase workflows, Kafka async execution, and platform reliability.
+          </div>
+          <ul class="timeline-achievements">
+            <li>Built Router Service to orchestrate multi-phase product-dimensioning workflows (dependency resolution, task decomposition, payload generation).</li>
+            <li>Implemented Kafka producers/consumers with JSON request/response handling and task-level timeouts.</li>
+            <li>Developed Executor Service for engine lifecycle (timeouts, retries, error propagation) + WASM modules from OCI registries.</li>
+            <li>Optimized MariaDB persistence for orchestration state using efficient SQL + Go data-access patterns.</li>
+            <li>Improved observability using Prometheus metrics, Grafana dashboards, probes, and pprof profiling.</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div class="timeline-title">Backend Software Developer</div>
+            <div class="timeline-period">Oct 2022 – Mar 2025</div>
+          </div>
+          <div class="timeline-company">Tata Consultancy Services (IBM Cloud Project)</div>
+          <div class="timeline-description">
+            Backend automation + monitoring services for internal cloud platform components.
+          </div>
+          <ul class="timeline-achievements">
+            <li>Designed backend automation and monitoring services in Golang, improving scalability and maintainability.</li>
+            <li>Built alert automation from logs + metrics, reducing manual workload and improving issue detection speed.</li>
+            <li>Implemented custom Prometheus metrics/exporters and alert rules for proactive failure detection.</li>
+            <li>Automated Service-ID provisioning and onboarding flows via scripts and APIs.</li>
+            <li>Led migration from LogDNA to IBM Cloud Logs (ICL) ensuring smooth transition and compatibility.</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div class="timeline-title">Domain Support Specialist</div>
+            <div class="timeline-period">Dec 2020 – Oct 2022</div>
+          </div>
+          <div class="timeline-company">Ericsson Global India Pvt. Ltd.</div>
+          <div class="timeline-description">
+            Automation and validation scripts for 3G/4G Network Elements with operational improvements.
+          </div>
+          <ul class="timeline-achievements">
+            <li>Refined Python-based validation scripts to test 3G/4G network elements and ensure stability.</li>
+            <li>Reduced ticket volume by 27% and improved Nokia 3G operations KPI to 99.30%.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="section" id="skills">
+    <div class="container">
+      <div class="section-header">
+        <h2>Skills</h2>
+        <div class="underline"></div>
+      </div>
+
+      <div class="skills-container">
+        <div class="skill-category">
+          <h3>Backend</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Golang</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Microservices</span>
+            <span class="skill-tag">Distributed Systems</span>
+            <span class="skill-tag">REST APIs</span>
+            <span class="skill-tag">gRPC</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3>Infrastructure</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Kubernetes</span>
+            <span class="skill-tag">Linux</span>
+            <span class="skill-tag">CI/CD</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3>Observability</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Prometheus</span>
+            <span class="skill-tag">Grafana</span>
+            <span class="skill-tag">Logging</span>
+            <span class="skill-tag">pprof</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3>Data & Messaging</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Kafka</span>
+            <span class="skill-tag">MariaDB</span>
+            <span class="skill-tag">SQL</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <h2>Projects</h2>
+        <div class="underline"></div>
+      </div>
+
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-content">
+            <div class="project-title">Router + Executor Platform</div>
+            <div class="project-period">Infosys</div>
+            <div class="project-description">
+              Workflow orchestration platform built with Go microservices, Kafka messaging, MariaDB state persistence,
+              and observability-first design.
+            </div>
+            <div class="project-tech">
+              <span class="tech-tag">Golang</span>
+              <span class="tech-tag">Kafka</span>
+              <span class="tech-tag">Kubernetes</span>
+              <span class="tech-tag">MariaDB</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-content">
+            <div class="project-title">Alert Automation System</div>
+            <div class="project-period">IBM Cloud (TCS)</div>
+            <div class="project-description">
+              Automated alert generation from logs + metrics using Prometheus exporters and alert rules to improve
+              detection speed and reduce manual monitoring.
+            </div>
+            <div class="project-tech">
+              <span class="tech-tag">Golang</span>
+              <span class="tech-tag">Prometheus</span>
+              <span class="tech-tag">Grafana</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-content">
+            <div class="project-title">Smart Cart</div>
+            <div class="project-period">Academic / IoT</div>
+            <div class="project-description">
+              Smart checkout cart system using RFID scanning and automation to reduce billing time and improve customer experience.
+            </div>
+            <div class="project-tech">
+              <span class="tech-tag">IoT</span>
+              <span class="tech-tag">RFID</span>
+              <span class="tech-tag">Arduino</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <h2>Contact</h2>
+        <div class="underline"></div>
+      </div>
+
+      <div class="contact-container">
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <div class="contact-detail">
+              <h3>Email</h3>
+              <p><a href="mailto:tanshai.saxena@gmail.com">tanshai.saxena@gmail.com</a></p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <div class="contact-detail">
+              <h3>Phone</h3>
+              <p><a href="tel:+919580838969">+91-9580838969</a></p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <i class="fa-brands fa-linkedin"></i>
+            <div class="contact-detail">
+              <h3>LinkedIn</h3>
+              <p><a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/tanshai-saxena-55634545/">View Profile</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <form onsubmit="event.preventDefault(); alert('Thanks! Please email me directly at tanshai.saxena@gmail.com');">
+            <div class="form-group">
+              <label>Your Name</label>
+              <input type="text" placeholder="Enter your name" required />
+            </div>
+
+            <div class="form-group">
+              <label>Your Email</label>
+              <input type="email" placeholder="Enter your email" required />
+            </div>
+
+            <div class="form-group">
+              <label>Message</label>
+              <textarea placeholder="Write your message..." required></textarea>
+            </div>
+
+            <button class="btn primary-btn" type="submit">
+              <i class="fa-solid fa-paper-plane"></i> Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> Tanshai Saxena • Built with GitHub Pages</p>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button id="backToTop" title="Back to Top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
   <script>
-    // Footer year
+    // Loader hide
+    window.addEventListener("load", () => {
+      const loader = document.getElementById("loader");
+      setTimeout(() => loader.classList.add("hide"), 300);
+    });
+
+    // Year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Theme toggle (saved)
-    const root = document.documentElement;
-    const toggle = document.getElementById("themeToggle");
+    // Theme toggle (dark-mode on body)
+    const body = document.body;
+    const themeToggle = document.getElementById("themeToggle");
 
-    function setTheme(t){
-      root.setAttribute("data-theme", t);
-      localStorage.setItem("theme", t);
-      toggle.textContent = (t === "dark") ? "☀️ Theme" : "🌙 Theme";
+    function setTheme(mode){
+      if(mode === "dark"){
+        body.classList.add("dark-mode");
+        themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+      } else {
+        body.classList.remove("dark-mode");
+        themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+      }
+      localStorage.setItem("theme", mode);
     }
 
-    const saved = localStorage.getItem("theme");
-    setTheme(saved ? saved : "dark");
+    const savedTheme = localStorage.getItem("theme");
+    setTheme(savedTheme ? savedTheme : "light");
 
-    toggle.addEventListener("click", () => {
-      const current = root.getAttribute("data-theme");
-      setTheme(current === "dark" ? "light" : "dark");
+    themeToggle.addEventListener("click", () => {
+      const isDark = body.classList.contains("dark-mode");
+      setTheme(isDark ? "light" : "dark");
+    });
+
+    // Mobile menu
+    const mobileMenu = document.getElementById("mobileMenu");
+    const navLinks = document.getElementById("navLinks");
+
+    mobileMenu.addEventListener("click", () => {
+      mobileMenu.classList.toggle("active");
+      navLinks.classList.toggle("active");
+    });
+
+    // Close menu on click
+    document.querySelectorAll(".nav-link").forEach(link => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.remove("active");
+        navLinks.classList.remove("active");
+      });
+    });
+
+    // Back to top
+    const backToTop = document.getElementById("backToTop");
+    window.addEventListener("scroll", () => {
+      if(window.scrollY > 350){
+        backToTop.classList.add("show");
+      } else {
+        backToTop.classList.remove("show");
+      }
+    });
+
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
   </script>
 </body>
