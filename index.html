@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Tanshai Saxena — Backend Software Developer (Golang, Python) | Microservices, Distributed Systems, Kubernetes, Kafka" />
+  <title>Tanshai Saxena | Backend Software Developer</title>
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#0f1b2d;
+      --muted:#9fb1c5;
+      --text:#e8eef7;
+      --soft:#13243a;
+      --line:rgba(255,255,255,.10);
+      --accent:#5eead4;
+      --accent2:#60a5fa;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      color:var(--text);
+      background:
+        radial-gradient(1000px 600px at 15% 10%, rgba(96,165,250,.22), transparent 60%),
+        radial-gradient(900px 500px at 85% 20%, rgba(94,234,212,.18), transparent 60%),
+        radial-gradient(900px 600px at 50% 90%, rgba(96,165,250,.12), transparent 65%),
+        var(--bg);
+      line-height:1.55;
+    }
+
+    a{color:inherit; text-decoration:none}
+    a:hover{opacity:.9}
+
+    .wrap{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 28px 18px 60px;
+    }
+
+    /* Header */
+    .header{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:18px;
+      padding: 22px 22px;
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .name{
+      font-size: 34px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin:0;
+    }
+
+    .role{
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .pillbar{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top: 14px;
+    }
+
+    .pill{
+      font-family: var(--mono);
+      font-size: 12px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color: #d6e6ff;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      white-space:nowrap;
+    }
+
+    .dot{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(94,234,212,.12);
+    }
+
+    .actions{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-end;
+      gap:10px;
+      min-width: 240px;
+    }
+
+    .btnrow{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      font-weight: 700;
+      font-size: 13px;
+      transition: transform .15s ease, background .15s ease;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.06);}
+    .btn.primary{
+      border-color: rgba(94,234,212,.35);
+      background: linear-gradient(180deg, rgba(94,234,212,.18), rgba(255,255,255,.02));
+    }
+
+    .small{
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+      text-align:right;
+    }
+
+    /* Layout grid */
+    .grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    @media (max-width: 860px){
+      .header{flex-direction:column}
+      .actions{align-items:flex-start; min-width:auto}
+      .small{text-align:left}
+      .grid{grid-template-columns:1fr}
+    }
+
+    /* Sections */
+    .card{
+      border:1px solid var(--line);
+      background: rgba(15,27,45,.65);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+
+    .section-title{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      margin:0 0 12px;
+    }
+
+    .section-title h2{
+      font-size: 14px;
+      margin:0;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #cfe3ff;
+    }
+
+    .section-title span{
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+
+    .summary{
+      margin:0;
+      color:#dbe7f8;
+      font-size: 14px;
+    }
+
+    /* Experience */
+    .timeline{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+
+    .job{
+      border:1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px 14px;
+      background: rgba(255,255,255,.02);
+    }
+
+    .jobhead{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom: 8px;
+    }
+
+    .jobtitle{
+      margin:0;
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .company{
+      margin:2px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .meta{
+      text-align:right;
+      color: var(--muted);
+      font-size: 12px;
+      font-family: var(--mono);
+      white-space:nowrap;
+    }
+
+    ul{
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color:#d7e6fb;
+      font-size: 13.5px;
+    }
+    li{margin: 6px 0}
+
+    /* Skills tags */
+    .tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+    .tag{
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      font-size: 12px;
+      color:#d7e6fb;
+      font-family: var(--mono);
+    }
+
+    /* Projects */
+    .proj{
+      border:1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px;
+      background: rgba(255,255,255,.02);
+    }
+    .proj h3{
+      margin:0;
+      font-size: 14px;
+      font-weight: 800;
+    }
+    .proj p{
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* Two-column lists */
+    .two{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 520px){
+      .two{grid-template-columns:1fr}
+    }
+
+    .kv{
+      border:1px solid var(--line);
+      border-radius: 16px;
+      padding: 12px 12px;
+      background: rgba(255,255,255,.02);
+    }
+    .kv .k{
+      font-size: 12px;
+      color: var(--muted);
+      font-family: var(--mono);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    .kv .v{
+      margin-top: 6px;
+      font-size: 13.5px;
+      color:#dbe7f8;
+      font-weight: 700;
+    }
+
+    /* Footer */
+    .footer{
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 12px;
+      text-align:center;
+    }
+
+    /* Print */
+    @media print{
+      body{background:white; color:#111}
+      .header,.card,.job,.proj,.kv{box-shadow:none; background:white}
+      .btnrow,.pillbar{display:none}
+      a{text-decoration:none; color:#111}
+      .wrap{padding:0}
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+
+    <!-- HERO -->
+    <section class="header">
+      <div>
+        <h1 class="name">Tanshai Saxena</h1>
+        <p class="role">Backend Software Developer • Golang • Microservices • Distributed Systems</p>
+
+        <div class="pillbar" aria-label="Highlights">
+          <span class="pill"><span class="dot"></span> 5+ years experience</span>
+          <span class="pill">Kafka • Kubernetes • Docker</span>
+          <span class="pill">Prometheus • Grafana • Observability</span>
+          <span class="pill">MariaDB • REST APIs • CI/CD</span>
+        </div>
+      </div>
+
+      <div class="actions">
+        <div class="btnrow">
+          <a class="btn primary" href="mailto:tanshai.saxena@gmail.com" title="Email">
+            ✉️ Email
+          </a>
+          <a class="btn" href="tel:+919580838969" title="Call">
+            📞 Call
+          </a>
+          <a class="btn" href="https://www.linkedin.com/in/tanshai-saxena-55634545/" target="_blank" rel="noreferrer" title="LinkedIn">
+            🔗 LinkedIn
+          </a>
+        </div>
+        <div class="small">
+          India • Open to Backend / Platform roles<br />
+          <span style="font-family: var(--mono);">Golang • Cloud-native • Reliability</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- GRID -->
+    <section class="grid">
+
+      <!-- LEFT -->
+      <div class="left">
+        <!-- SUMMARY -->
+        <div class="card">
+          <div class="section-title">
+            <h2>Summary</h2>
+            <span>Backend</span>
+          </div>
+          <p class="summary">
+            Backend Developer with 5 years of experience in Golang and Python. Skilled in building microservices,
+            distributed systems, REST APIs, and automation workflows. Strong focus on system design, observability
+            (Prometheus, Grafana), API performance improvements, and cloud-native backend development. Experienced
+            in Docker, Kubernetes, and CI/CD pipelines. Adept at debugging complex issues, improving reliability,
+            and delivering scalable backend services.
+          </p>
+        </div>
+
+        <!-- EXPERIENCE -->
+        <div class="card" style="margin-top:18px;">
+          <div class="section-title">
+            <h2>Experience</h2>
+            <span>2020 → Present</span>
+          </div>
+
+          <div class="timeline">
+
+            <article class="job">
+              <div class="jobhead">
+                <div>
+                  <p class="jobtitle">Senior Associate Consultant</p>
+                  <p class="company">Infosys Limited</p>
+                </div>
+                <div class="meta">Apr 2025 – Current</div>
+              </div>
+              <ul>
+                <li>Built <b>Router Service</b> to orchestrate multi-phase product-dimensioning workflows (dependency resolution, task decomposition, payload generation).</li>
+                <li>Implemented <b>Kafka-based async communication</b> between Router and Execution Engines using Go producers/consumers with JSON request/response handling and task-level timeout control.</li>
+                <li>Developed <b>Executor Service</b> to manage engine execution lifecycle (timeouts, retries, error propagation) and integrated WASM engine modules stored in OCI registries.</li>
+                <li>Designed and optimized <b>MariaDB persistence</b> for workflow metadata and orchestration state using efficient SQL + Go data-access patterns.</li>
+                <li>Improved reliability and observability using <b>Prometheus metrics</b>, <b>Grafana dashboards</b>, Kubernetes logs, and readiness/liveness probes.</li>
+                <li>Improved engineering quality by adding vulnerability checks, increasing test coverage, enforcing coverage gates in CI, and using <b>pprof</b> profiling to optimize bottlenecks.</li>
+              </ul>
+            </article>
+
+            <article class="job">
+              <div class="jobhead">
+                <div>
+                  <p class="jobtitle">Backend Software Developer</p>
+                  <p class="company">Tata Consultancy Services (IBM Cloud Project)</p>
+                </div>
+                <div class="meta">Oct 2022 – Mar 2025</div>
+              </div>
+              <ul>
+                <li>Designed and improved backend automation and monitoring services using <b>Golang</b>, improving reliability and scalability of internal cloud-platform components.</li>
+                <li>Built an <b>alert automation system</b> that generated event-driven alerts from logs and metrics, reducing manual workload and improving detection speed.</li>
+                <li>Implemented custom <b>Prometheus metrics</b>, exporter logic, and alert rules for proactive detection of failures.</li>
+                <li>Automated <b>Service-ID provisioning</b> and onboarding flows through scripts and APIs, reducing provisioning delays and standardizing production readiness.</li>
+                <li>Led backend migration from LogDNA to <b>IBM Cloud Logs (ICL)</b>, ensuring smooth transition and backward compatibility.</li>
+                <li>Collaborated with SRE teams to troubleshoot production issues and wrote detailed runbooks for recurring scenarios.</li>
+              </ul>
+            </article>
+
+            <article class="job">
+              <div class="jobhead">
+                <div>
+                  <p class="jobtitle">Domain Support Specialist</p>
+                  <p class="company">Ericsson Global India Pvt. Ltd.</p>
+                </div>
+                <div class="meta">Dec 2020 – Oct 2022</div>
+              </div>
+              <ul>
+                <li>Optimized Python validation scripts to test 3G/4G Network Elements, ensuring stable connectivity and functional compliance.</li>
+                <li>Developed automation scripts to verify and maintain network connectivity between nodes, reducing manual troubleshooting.</li>
+                <li>Contributed to automation initiatives and POC activities, including scripting, analysis, and basic Kubernetes operations.</li>
+                <li>Helped reduce ticket volume by <b>27%</b>, improving operational efficiency and increasing Nokia 3G operations KPI to <b>99.30%</b>.</li>
+              </ul>
+            </article>
+
+            <article class="job">
+              <div class="jobhead">
+                <div>
+                  <p class="jobtitle">Intern</p>
+                  <p class="company">LinuxWorld Informatics Pvt. Ltd.</p>
+                </div>
+                <div class="meta">Jun 2019 – Jul 2019</div>
+              </div>
+              <ul>
+                <li>Earned certifications in <b>Red Hat Linux (RHEL7, RHEL8)</b> and <b>Ansible</b>; gained experience in VM creation and management.</li>
+                <li>Automated HAProxy and Hadoop cluster deployment using <b>Ansible</b>; explored Docker and Kubernetes fundamentals.</li>
+                <li>Worked on IoT project (Pyke) using RFID and Raspberry Pi for automated toll payments.</li>
+              </ul>
+            </article>
+
+            <article class="job">
+              <div class="jobhead">
+                <div>
+                  <p class="jobtitle">Intern</p>
+                  <p class="company">Siemens Industry Software Pvt. Ltd.</p>
+                </div>
+                <div class="meta">Jun 2018 – Jul 2018</div>
+              </div>
+              <ul>
+                <li>Gained foundational AWS knowledge, deploying apps and understanding Git/version control workflows.</li>
+              </ul>
+            </article>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <aside class="right">
+
+        <!-- QUICK INFO -->
+        <div class="card">
+          <div class="section-title">
+            <h2>Quick Info</h2>
+            <span>Contact</span>
+          </div>
+
+          <div class="two">
+            <div class="kv">
+              <div class="k">Email</div>
+              <div class="v"><a href="mailto:tanshai.saxena@gmail.com">tanshai.saxena@gmail.com</a></div>
+            </div>
+            <div class="kv">
+              <div class="k">Phone</div>
+              <div class="v"><a href="tel:+919580838969">+91-9580838969</a></div>
+            </div>
+            <div class="kv" style="grid-column:1/-1;">
+              <div class="k">LinkedIn</div>
+              <div class="v"><a href="https://www.linkedin.com/in/tanshai-saxena-55634545/" target="_blank" rel="noreferrer">linkedin.com/in/tanshai-saxena-55634545</a></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SKILLS -->
+        <div class="card" style="margin-top:18px;">
+          <div class="section-title">
+            <h2>Skills</h2>
+            <span>Tech Stack</span>
+          </div>
+
+          <div class="tags" aria-label="Skills">
+            <span class="tag">Golang</span>
+            <span class="tag">Python</span>
+            <span class="tag">Microservices</span>
+            <span class="tag">Distributed Systems</span>
+            <span class="tag">REST APIs</span>
+            <span class="tag">gRPC</span>
+            <span class="tag">Golang Concurrency</span>
+            <span class="tag">Kafka</span>
+            <span class="tag">MariaDB</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Kubernetes</span>
+            <span class="tag">Prometheus</span>
+            <span class="tag">Grafana</span>
+            <span class="tag">Linux</span>
+            <span class="tag">GitLab / GitHub</span>
+            <span class="tag">IBM Cloud</span>
+            <span class="tag">Ansible</span>
+            <span class="tag">HAProxy</span>
+          </div>
+        </div>
+
+        <!-- EDUCATION -->
+        <div class="card" style="margin-top:18px;">
+          <div class="section-title">
+            <h2>Education</h2>
+            <span>Academics</span>
+          </div>
+
+          <div class="timeline">
+            <div class="job">
+              <div class="jobhead">
+                <div>
+                  <p class="jobtitle">B.Tech — Institute of Engineering and Technology (IET), Lucknow</p>
+                  <p class="company">GPA: 7.55</p>
+                </div>
+                <div class="meta">2016 – 2020</div>
+              </div>
+            </div>
+
+            <div class="job">
+              <div class="jobhead">
+                <div>
+                  <p class="jobtitle">Senior Secondary — Delhi Public School, Kanpur</p>
+                  <p class="company">76%</p>
+                </div>
+                <div class="meta">2015 – 2016</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CERTIFICATIONS -->
+        <div class="card" style="margin-top:18px;">
+          <div class="section-title">
+            <h2>Certifications</h2>
+            <span>Verified</span>
+          </div>
+
+          <ul style="margin-top:0;">
+            <li><b>IBM Certified Advocate – Cloud v2</b> (98%)</li>
+            <li><b>RHCSA</b> (300/300)</li>
+            <li><b>Red Hat Specialist in Ansible Automation (EX407)</b> (218/300)</li>
+            <li><b>RHCE</b> (257/300)</li>
+            <li><b>CORE JAVA</b> — NIIT</li>
+          </ul>
+        </div>
+
+        <!-- ACHIEVEMENTS -->
+        <div class="card" style="margin-top:18px;">
+          <div class="section-title">
+            <h2>Achievements</h2>
+            <span>Highlights</span>
+          </div>
+
+          <ul style="margin-top:0;">
+            <li>Performer of the Month <b>4 times</b> in 1.5 years.</li>
+            <li>Selected & showcased startup idea at <b>JAZBAA 1.0</b> (IIEC community).</li>
+            <li>Co-ordinator, <b>Indian Innovation and Entrepreneurship Community (IIEC)</b>, Jaipur.</li>
+            <li>Among the first in the world to clear <b>RHCSA on RHEL 8</b>.</li>
+            <li>Co-ordinator for Technical Fest, IET Lucknow; Campus Representative for IIT Techkriti 2018.</li>
+          </ul>
+        </div>
+
+        <!-- PROJECTS -->
+        <div class="card" style="margin-top:18px;">
+          <div class="section-title">
+            <h2>Projects</h2>
+            <span>Academic</span>
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <div class="proj">
+              <h3>Mobile Augmented Reality</h3>
+              <p>
+                Built an AR learning experience using Unity + Vuforia Engine to enhance student learning through interactive content.
+              </p>
+            </div>
+
+            <div class="proj">
+              <h3>Smart Cart</h3>
+              <p>
+                Developed an automated checkout cart system using RFID + Arduino UNO + ESP32-CAM to scan items and calculate bills in real-time.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </aside>
+    </section>
+
+    <div class="footer">
+      © <span id="year"></span> Tanshai Saxena • Built for GitHub Pages
+    </div>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
