@@ -3,82 +3,74 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Tanshai Saxena — Backend Software Developer (Golang, Python) | Microservices, Distributed Systems, Kubernetes, Kafka" />
-  <title>Tanshai Saxena | Portfolio</title>
+  <meta name="description" content="Tanshai Saxena | Backend Software Developer | Golang | Microservices | Distributed Systems" />
+  <title>Tanshai Saxena</title>
 
   <style>
     :root{
-      --radius: 18px;
-      --shadow: 0 12px 35px rgba(0,0,0,.22);
+      --radius: 16px;
+      --shadow: 0 14px 35px rgba(0,0,0,.18);
       --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
       --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      --trans: 180ms ease;
+      --trans: 160ms ease;
     }
 
-    /* Light Theme */
+    /* LIGHT */
     html[data-theme="light"]{
-      --bg: #f6f8fc;
-      --card: rgba(255,255,255,.75);
-      --cardSolid: #ffffff;
-      --text: #0b1220;
-      --muted: #44576f;
-      --line: rgba(11,18,32,.12);
-      --soft: rgba(11,18,32,.04);
-      --accent: #0ea5e9;
-      --accent2:#14b8a6;
-      --chip: rgba(11,18,32,.05);
+      --bg:#f6f7fb;
+      --card:#ffffff;
+      --text:#0b1220;
+      --muted:#51637a;
+      --line:rgba(11,18,32,.12);
+      --soft:rgba(11,18,32,.04);
+      --accent:#2563eb;
+      --accentSoft: rgba(37,99,235,.12);
     }
 
-    /* Dark Theme */
+    /* DARK */
     html[data-theme="dark"]{
       --bg:#0b1220;
-      --card: rgba(15,27,45,.68);
-      --cardSolid:#0f1b2d;
+      --card:#0f1b2d;
       --text:#e8eef7;
       --muted:#9fb1c5;
       --line:rgba(255,255,255,.12);
-      --soft: rgba(255,255,255,.04);
-      --accent:#5eead4;
-      --accent2:#60a5fa;
-      --chip: rgba(255,255,255,.06);
+      --soft:rgba(255,255,255,.05);
+      --accent:#60a5fa;
+      --accentSoft: rgba(96,165,250,.14);
     }
 
     *{box-sizing:border-box}
     html,body{height:100%}
+
     body{
       margin:0;
-      font-family:var(--sans);
-      color:var(--text);
-      background:
-        radial-gradient(1000px 600px at 15% 10%, rgba(96,165,250,.18), transparent 60%),
-        radial-gradient(900px 500px at 85% 20%, rgba(94,234,212,.14), transparent 60%),
-        radial-gradient(900px 600px at 50% 90%, rgba(96,165,250,.10), transparent 65%),
-        var(--bg);
+      font-family: var(--sans);
+      color: var(--text);
+      background: var(--bg);
       transition: background var(--trans), color var(--trans);
       line-height:1.55;
     }
 
     a{color:inherit; text-decoration:none}
-    a:hover{opacity:.92}
+    a:hover{opacity:.9}
 
     .wrap{
-      max-width: 1100px;
+      max-width: 980px;
       margin: 0 auto;
       padding: 26px 18px 70px;
     }
 
-    /* Topbar */
-    .topbar{
+    /* Top Nav */
+    .nav{
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:14px;
-      padding: 12px 14px;
-      border:1px solid var(--line);
+      padding: 14px 16px;
+      border: 1px solid var(--line);
       background: var(--card);
       border-radius: 999px;
       box-shadow: var(--shadow);
-      backdrop-filter: blur(12px);
       position: sticky;
       top: 14px;
       z-index: 50;
@@ -91,22 +83,16 @@
       font-weight: 900;
       letter-spacing: -.02em;
     }
-    .logo{
-      width: 34px;
-      height: 34px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--accent2), var(--accent));
-      box-shadow: 0 8px 22px rgba(0,0,0,.18);
-    }
-    .brand small{
-      display:block;
-      font-weight: 700;
-      color: var(--muted);
-      letter-spacing: 0;
-      margin-top: -2px;
+
+    .dot{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 5px var(--accentSoft);
     }
 
-    .nav{
+    .links{
       display:flex;
       align-items:center;
       gap:10px;
@@ -114,132 +100,70 @@
       justify-content:flex-end;
     }
 
-    .nav a{
+    .pill{
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--soft);
       font-size: 13px;
       font-weight: 800;
-      padding: 10px 12px;
-      border-radius: 999px;
-      border:1px solid var(--line);
-      background: var(--soft);
       transition: transform var(--trans), background var(--trans);
     }
-    .nav a:hover{transform: translateY(-1px); background: var(--chip);}
+    .pill:hover{transform: translateY(-1px);}
 
     .toggle{
       cursor:pointer;
-      border:1px solid var(--line);
-      background: var(--soft);
+      padding: 9px 12px;
       border-radius: 999px;
-      padding: 10px 12px;
+      border: 1px solid var(--line);
+      background: var(--soft);
       font-weight: 900;
       font-size: 13px;
-      display:flex;
-      align-items:center;
-      gap:8px;
-      transition: transform var(--trans), background var(--trans);
+      transition: transform var(--trans);
       user-select:none;
     }
-    .toggle:hover{transform: translateY(-1px); background: var(--chip);}
+    .toggle:hover{transform: translateY(-1px);}
 
     /* Hero */
     .hero{
       margin-top: 18px;
-      border:1px solid var(--line);
-      background: var(--card);
+      padding: 24px;
       border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: var(--card);
       box-shadow: var(--shadow);
-      padding: 22px;
-      backdrop-filter: blur(12px);
     }
 
-    .heroGrid{
-      display:grid;
-      grid-template-columns: 1.3fr .7fr;
-      gap:18px;
-      align-items:stretch;
-    }
-
-    @media (max-width: 900px){
-      .heroGrid{grid-template-columns:1fr}
-      .topbar{position:relative; top:0; border-radius: var(--radius);}
-    }
-
-    .name{
-      font-size: 38px;
+    .hero h1{
       margin:0;
-      font-weight: 950;
+      font-size: 40px;
       letter-spacing: -0.03em;
       line-height: 1.1;
     }
 
-    .headline{
-      margin: 10px 0 0;
+    .hero p{
+      margin: 12px 0 0;
       color: var(--muted);
-      font-weight: 700;
+      font-weight: 650;
       font-size: 15px;
+      max-width: 70ch;
     }
 
-    .chips{
+    .ctaRow{
       display:flex;
       flex-wrap:wrap;
-      gap:10px;
-      margin-top: 14px;
-    }
-
-    .chip{
-      font-family: var(--mono);
-      font-size: 12px;
-      padding: 8px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: var(--soft);
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      white-space:nowrap;
-    }
-
-    .dot{
-      width:8px; height:8px; border-radius:50%;
-      background: var(--accent2);
-      box-shadow: 0 0 0 4px rgba(20,184,166,.14);
-    }
-
-    .ctaCard{
-      border:1px solid var(--line);
-      background: var(--soft);
-      border-radius: var(--radius);
-      padding: 16px;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
       gap:12px;
-    }
-
-    .ctaTitle{
-      margin:0;
-      font-weight: 900;
-      font-size: 14px;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .ctaBtns{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
+      margin-top: 16px;
     }
 
     .btn{
       display:inline-flex;
       align-items:center;
-      justify-content:center;
       gap:8px;
-      padding: 11px 12px;
+      padding: 11px 14px;
       border-radius: 14px;
-      border:1px solid var(--line);
-      background: var(--cardSolid);
+      border: 1px solid var(--line);
+      background: var(--soft);
       font-weight: 900;
       font-size: 13px;
       transition: transform var(--trans), background var(--trans);
@@ -247,86 +171,58 @@
     .btn:hover{transform: translateY(-1px);}
 
     .btn.primary{
-      background: linear-gradient(135deg, rgba(20,184,166,.25), rgba(14,165,233,.22));
-      border-color: rgba(14,165,233,.35);
-    }
-
-    .btn.ghost{
-      background: transparent;
-    }
-
-    .muted{
-      color: var(--muted);
-      font-size: 12px;
-      margin: 0;
+      background: var(--accentSoft);
+      border-color: rgba(96,165,250,.35);
     }
 
     /* Sections */
     .section{
       margin-top: 18px;
-      border:1px solid var(--line);
-      background: var(--card);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
       padding: 18px;
-      backdrop-filter: blur(12px);
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: var(--card);
+      box-shadow: var(--shadow);
     }
 
     .sectionHead{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:12px;
+      gap:10px;
       margin-bottom: 12px;
     }
 
     .sectionHead h2{
       margin:0;
       font-size: 14px;
-      letter-spacing: .10em;
       text-transform: uppercase;
+      letter-spacing: .12em;
     }
 
     .badge{
       font-family: var(--mono);
       font-size: 12px;
+      color: var(--muted);
       padding: 6px 10px;
       border-radius: 999px;
       border: 1px solid var(--line);
       background: var(--soft);
-      color: var(--muted);
-      white-space:nowrap;
     }
 
-    /* Layout grid */
-    .mainGrid{
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 18px;
-      margin-top: 18px;
-    }
-    @media (max-width: 900px){
-      .mainGrid{grid-template-columns:1fr}
-    }
-
-    /* Experience cards */
-    .timeline{
-      display:flex;
-      flex-direction:column;
-      gap:14px;
-    }
-
+    /* Experience */
     .job{
-      border:1px solid var(--line);
-      border-radius: 16px;
       padding: 14px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
       background: var(--soft);
+      margin-top: 12px;
     }
 
     .jobTop{
       display:flex;
-      justify-content:space-between;
       align-items:flex-start;
+      justify-content:space-between;
       gap:12px;
     }
 
@@ -335,17 +231,18 @@
       font-weight: 950;
       font-size: 15px;
     }
+
     .jobCompany{
       margin: 2px 0 0;
       color: var(--muted);
-      font-weight: 700;
+      font-weight: 750;
       font-size: 13px;
     }
 
     .jobMeta{
       font-family: var(--mono);
-      font-size: 12px;
       color: var(--muted);
+      font-size: 12px;
       white-space:nowrap;
       text-align:right;
     }
@@ -353,43 +250,45 @@
     ul{
       margin: 10px 0 0;
       padding-left: 18px;
+      color: var(--text);
       font-size: 13.5px;
     }
     li{margin: 6px 0}
 
-    /* Skills tags */
+    /* Skills */
     .tags{
       display:flex;
       flex-wrap:wrap;
       gap:10px;
     }
     .tag{
+      font-family: var(--mono);
+      font-size: 12px;
       padding: 8px 10px;
       border-radius: 999px;
       border: 1px solid var(--line);
       background: var(--soft);
-      font-size: 12px;
-      font-family: var(--mono);
     }
 
     /* Projects */
-    .projectsGrid{
+    .projGrid{
       display:grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
     }
-    @media (max-width: 720px){
-      .projectsGrid{grid-template-columns:1fr}
+    @media (max-width: 760px){
+      .projGrid{grid-template-columns:1fr}
+      .hero h1{font-size: 34px;}
     }
 
     .proj{
-      border:1px solid var(--line);
-      border-radius: 16px;
       padding: 14px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
       background: var(--soft);
       display:flex;
       flex-direction:column;
-      gap:10px;
+      gap:8px;
       min-height: 150px;
     }
 
@@ -419,7 +318,7 @@
       padding: 9px 10px;
       border-radius: 12px;
       border: 1px solid var(--line);
-      background: var(--cardSolid);
+      background: var(--card);
       font-weight: 900;
       font-size: 12px;
       transition: transform var(--trans);
@@ -428,18 +327,10 @@
 
     /* Footer */
     .footer{
-      margin-top: 16px;
+      margin-top: 18px;
       text-align:center;
       color: var(--muted);
       font-size: 12px;
-    }
-
-    /* Print */
-    @media print{
-      .topbar, .toggle, .ctaBtns{display:none !important;}
-      body{background:white; color:#111;}
-      .hero,.section{box-shadow:none; background:white;}
-      a{color:#111;}
     }
   </style>
 </head>
@@ -447,282 +338,185 @@
 <body>
   <div class="wrap">
 
-    <!-- TOPBAR -->
-    <header class="topbar">
+    <!-- NAV -->
+    <header class="nav">
       <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <div>
-          Tanshai Saxena
-          <small>Backend Software Developer</small>
-        </div>
+        <span class="dot" aria-hidden="true"></span>
+        <span>Tanshai Saxena</span>
       </div>
 
-      <nav class="nav">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+      <div class="links">
+        <a class="pill" href="#experience">Experience</a>
+        <a class="pill" href="#skills">Skills</a>
+        <a class="pill" href="#projects">Projects</a>
+        <a class="pill" href="#contact">Contact</a>
 
-        <button class="toggle" id="themeToggle" aria-label="Toggle theme">
-          🌙 <span id="themeText">Dark</span>
-        </button>
-      </nav>
+        <button class="toggle" id="themeToggle">🌙 Theme</button>
+      </div>
     </header>
 
     <!-- HERO -->
-    <section class="hero" id="about">
-      <div class="heroGrid">
-        <div>
-          <h1 class="name">Backend Developer.<br/>Cloud-native Builder.</h1>
-          <p class="headline">
-            5+ years in <b>Golang</b> & <b>Python</b> building <b>microservices</b>, <b>distributed systems</b>,
-            and <b>observability-first</b> backend platforms (Kafka, Kubernetes, Prometheus, Grafana).
-          </p>
+    <section class="hero">
+      <h1>Backend Developer.<br/>Golang • Cloud Native • Observability</h1>
+      <p>
+        Backend Software Developer with 5 years of experience in Golang and Python.
+        I build scalable microservices, distributed systems, and automation workflows with strong focus on reliability,
+        performance, and production debugging.
+      </p>
 
-          <div class="chips">
-            <span class="chip"><span class="dot"></span> Golang • Microservices</span>
-            <span class="chip">Kafka • Async Processing</span>
-            <span class="chip">Kubernetes • Docker</span>
-            <span class="chip">Prometheus • Grafana</span>
-            <span class="chip">MariaDB • REST APIs</span>
-          </div>
-        </div>
-
-        <div class="ctaCard">
-          <div>
-            <p class="ctaTitle">Quick Actions</p>
-            <p class="muted">
-              Recruiter-friendly portfolio with downloadable resume.
-            </p>
-          </div>
-
-          <div class="ctaBtns">
-            <!-- IMPORTANT: Put resume.pdf in the same repo -->
-            <a class="btn primary" href="./resume.pdf" download>
-              ⬇️ Download Resume (PDF)
-            </a>
-
-            <a class="btn" href="mailto:tanshai.saxena@gmail.com">
-              ✉️ Email Me
-            </a>
-
-            <a class="btn ghost" href="https://www.linkedin.com/in/tanshai-saxena-55634545/" target="_blank" rel="noreferrer">
-              🔗 LinkedIn Profile
-            </a>
-
-            <p class="muted" style="margin-top:2px;">
-              📞 +91-9580838969
-            </p>
-          </div>
-        </div>
+      <div class="ctaRow">
+        <a class="btn primary" href="./resume.pdf" download>⬇️ Download Resume</a>
+        <a class="btn" href="mailto:tanshai.saxena@gmail.com">✉️ Email</a>
+        <a class="btn" href="tel:+919580838969">📞 Call</a>
+        <a class="btn" href="https://www.linkedin.com/in/tanshai-saxena-55634545/" target="_blank" rel="noreferrer">🔗 LinkedIn</a>
       </div>
     </section>
 
-    <!-- MAIN GRID -->
-    <section class="mainGrid">
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience">
+      <div class="sectionHead">
+        <h2>Experience</h2>
+        <span class="badge">2020 → Present</span>
+      </div>
 
-      <!-- LEFT -->
-      <div>
-        <!-- EXPERIENCE -->
-        <div class="section" id="experience">
-          <div class="sectionHead">
-            <h2>Experience</h2>
-            <span class="badge">2020 → Present</span>
+      <div class="job">
+        <div class="jobTop">
+          <div>
+            <p class="jobTitle">Senior Associate Consultant</p>
+            <p class="jobCompany">Infosys Limited</p>
           </div>
+          <div class="jobMeta">Apr 2025 – Current</div>
+        </div>
+        <ul>
+          <li>Built Router Service to orchestrate multi-phase workflows (dependency resolution, task decomposition, payload generation).</li>
+          <li>Implemented Kafka-based async communication using Go producers/consumers with JSON request/response and timeouts.</li>
+          <li>Developed Executor Service to manage engine lifecycle (timeouts, retries, error propagation) with WASM modules in OCI registries.</li>
+          <li>Optimized MariaDB persistence and improved reliability with Prometheus + Grafana + Kubernetes probes.</li>
+        </ul>
+      </div>
 
-          <div class="timeline">
-            <article class="job">
-              <div class="jobTop">
-                <div>
-                  <p class="jobTitle">Senior Associate Consultant</p>
-                  <p class="jobCompany">Infosys Limited</p>
-                </div>
-                <div class="jobMeta">Apr 2025 – Current</div>
-              </div>
-              <ul>
-                <li>Built <b>Router Service</b> to orchestrate multi-phase product-dimensioning workflows (dependency resolution, task decomposition, payload generation).</li>
-                <li>Implemented <b>Kafka async communication</b> between Router and Execution Engines using Go producers/consumers with JSON request/response handling and task-level timeout control.</li>
-                <li>Developed <b>Executor Service</b> for engine execution lifecycle (timeouts, retries, error propagation) and integrated WASM engine modules stored in OCI registries.</li>
-                <li>Optimized <b>MariaDB persistence</b> for orchestration state using efficient SQL + Go data-access patterns.</li>
-                <li>Improved reliability using <b>Prometheus</b>, <b>Grafana</b>, Kubernetes logs, readiness/liveness probes, and <b>pprof</b>.</li>
-              </ul>
-            </article>
+      <div class="job">
+        <div class="jobTop">
+          <div>
+            <p class="jobTitle">Backend Software Developer</p>
+            <p class="jobCompany">TCS (IBM Cloud Project)</p>
+          </div>
+          <div class="jobMeta">Oct 2022 – Mar 2025</div>
+        </div>
+        <ul>
+          <li>Built backend automation & monitoring services using Golang.</li>
+          <li>Implemented alert automation from logs + metrics with Prometheus exporters and rules.</li>
+          <li>Led migration from LogDNA to IBM Cloud Logs (ICL) with smooth transition and compatibility.</li>
+        </ul>
+      </div>
 
-            <article class="job">
-              <div class="jobTop">
-                <div>
-                  <p class="jobTitle">Backend Software Developer</p>
-                  <p class="jobCompany">Tata Consultancy Services (IBM Cloud Project)</p>
-                </div>
-                <div class="jobMeta">Oct 2022 – Mar 2025</div>
-              </div>
-              <ul>
-                <li>Designed backend automation & monitoring services in <b>Golang</b>, improving scalability and maintainability.</li>
-                <li>Built <b>alert automation</b> tools generating event-driven alerts from logs/metrics, reducing manual workload.</li>
-                <li>Implemented <b>custom Prometheus metrics</b>, exporter logic, and alert rules for proactive failure detection.</li>
-                <li>Automated Service-ID provisioning and onboarding via scripts/APIs, reducing provisioning delays.</li>
-                <li>Led migration from LogDNA to <b>IBM Cloud Logs (ICL)</b>, ensuring smooth transition & compatibility.</li>
-              </ul>
-            </article>
+      <div class="job">
+        <div class="jobTop">
+          <div>
+            <p class="jobTitle">Domain Support Specialist</p>
+            <p class="jobCompany">Ericsson Global India Pvt. Ltd.</p>
+          </div>
+          <div class="jobMeta">Dec 2020 – Oct 2022</div>
+        </div>
+        <ul>
+          <li>Optimized Python scripts to validate 3G/4G network elements and improve stability.</li>
+          <li>Reduced ticket volume by 27% and improved operations KPIs to 99.30%.</li>
+        </ul>
+      </div>
+    </section>
 
-            <article class="job">
-              <div class="jobTop">
-                <div>
-                  <p class="jobTitle">Domain Support Specialist</p>
-                  <p class="jobCompany">Ericsson Global India Pvt. Ltd.</p>
-                </div>
-                <div class="jobMeta">Dec 2020 – Oct 2022</div>
-              </div>
-              <ul>
-                <li>Optimized Python validation scripts to test 3G/4G network elements for stable connectivity.</li>
-                <li>Built automation scripts to verify network connectivity between nodes, reducing manual troubleshooting.</li>
-                <li>Reduced ticket volume by <b>27%</b>, improving operational efficiency and KPIs (99.30%).</li>
-              </ul>
-            </article>
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+      <div class="sectionHead">
+        <h2>Skills</h2>
+        <span class="badge">Stack</span>
+      </div>
+
+      <div class="tags">
+        <span class="tag">Golang</span>
+        <span class="tag">Python</span>
+        <span class="tag">Microservices</span>
+        <span class="tag">Distributed Systems</span>
+        <span class="tag">Kafka</span>
+        <span class="tag">MariaDB</span>
+        <span class="tag">Docker</span>
+        <span class="tag">Kubernetes</span>
+        <span class="tag">Prometheus</span>
+        <span class="tag">Grafana</span>
+        <span class="tag">Linux</span>
+        <span class="tag">GitHub</span>
+        <span class="tag">GitLab</span>
+        <span class="tag">IBM Cloud</span>
+        <span class="tag">Ansible</span>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="sectionHead">
+        <h2>Projects</h2>
+        <span class="badge">GitHub</span>
+      </div>
+
+      <div class="projGrid">
+        <div class="proj">
+          <h3>Router + Executor Platform</h3>
+          <p>Microservices orchestration with Kafka messaging, timeouts, retries, MariaDB state, and observability-first design.</p>
+          <div class="projLinks">
+            <a class="linkBtn" href="#" target="_blank" rel="noreferrer">💻 GitHub</a>
+            <a class="linkBtn" href="#" target="_blank" rel="noreferrer">📌 Details</a>
           </div>
         </div>
 
-        <!-- PROJECTS (Portfolio style + GitHub buttons) -->
-        <div class="section" id="projects">
-          <div class="sectionHead">
-            <h2>Projects</h2>
-            <span class="badge">GitHub</span>
+        <div class="proj">
+          <h3>Alert Automation System</h3>
+          <p>Event-driven alert automation using logs + metrics, Prometheus exporter logic, and SRE-ready dashboards.</p>
+          <div class="projLinks">
+            <a class="linkBtn" href="#" target="_blank" rel="noreferrer">💻 GitHub</a>
+            <a class="linkBtn" href="#" target="_blank" rel="noreferrer">📊 Dashboard</a>
           </div>
+        </div>
 
-          <div class="projectsGrid">
+        <div class="proj">
+          <h3>Mobile Augmented Reality</h3>
+          <p>AR learning project using Unity + Vuforia Engine to improve interactive learning for students.</p>
+          <div class="projLinks">
+            <a class="linkBtn" href="#" target="_blank" rel="noreferrer">💻 GitHub</a>
+            <a class="linkBtn" href="#" target="_blank" rel="noreferrer">🎥 Demo</a>
+          </div>
+        </div>
 
-            <div class="proj">
-              <h3>Router + Executor Platform (Microservices)</h3>
-              <p>
-                Orchestration platform for multi-phase workflows with Kafka messaging, timeout handling,
-                engine execution lifecycle, and observability-first design.
-              </p>
-              <div class="projLinks">
-                <!-- Replace with your real GitHub links -->
-                <a class="linkBtn" href="#" target="_blank" rel="noreferrer">💻 GitHub Repo</a>
-                <a class="linkBtn" href="#" target="_blank" rel="noreferrer">📌 Case Study</a>
-              </div>
-            </div>
-
-            <div class="proj">
-              <h3>Alert Automation System</h3>
-              <p>
-                Event-driven alert generation from logs + metrics with Prometheus exporter logic and SRE-ready dashboards.
-              </p>
-              <div class="projLinks">
-                <a class="linkBtn" href="#" target="_blank" rel="noreferrer">💻 GitHub Repo</a>
-                <a class="linkBtn" href="#" target="_blank" rel="noreferrer">📊 Dashboard</a>
-              </div>
-            </div>
-
-            <div class="proj">
-              <h3>Mobile Augmented Reality</h3>
-              <p>
-                AR-based learning experience using Unity + Vuforia Engine to enhance student learning.
-              </p>
-              <div class="projLinks">
-                <a class="linkBtn" href="#" target="_blank" rel="noreferrer">💻 GitHub Repo</a>
-                <a class="linkBtn" href="#" target="_blank" rel="noreferrer">🎥 Demo</a>
-              </div>
-            </div>
-
-            <div class="proj">
-              <h3>Smart Cart (IoT + RFID)</h3>
-              <p>
-                Automated checkout cart system using RFID + Arduino UNO + ESP32-CAM for scanning and billing.
-              </p>
-              <div class="projLinks">
-                <a class="linkBtn" href="#" target="_blank" rel="noreferrer">💻 GitHub Repo</a>
-                <a class="linkBtn" href="#" target="_blank" rel="noreferrer">🧾 Details</a>
-              </div>
-            </div>
-
+        <div class="proj">
+          <h3>Smart Cart</h3>
+          <p>Automated checkout cart using RFID, Arduino UNO, and ESP32-CAM for scanning and billing.</p>
+          <div class="projLinks">
+            <a class="linkBtn" href="#" target="_blank" rel="noreferrer">💻 GitHub</a>
+            <a class="linkBtn" href="#" target="_blank" rel="noreferrer">🧾 Details</a>
           </div>
         </div>
       </div>
 
-      <!-- RIGHT -->
-      <aside>
-        <!-- SKILLS -->
-        <div class="section" id="skills">
-          <div class="sectionHead">
-            <h2>Skills</h2>
-            <span class="badge">Tech Stack</span>
-          </div>
+      <p style="margin:12px 0 0; color: var(--muted); font-size: 12px;">
+        Tip: Replace “#” links with your real GitHub repositories.
+      </p>
+    </section>
 
-          <div class="tags">
-            <span class="tag">Golang</span>
-            <span class="tag">Python</span>
-            <span class="tag">Microservices</span>
-            <span class="tag">Distributed Systems</span>
-            <span class="tag">REST APIs</span>
-            <span class="tag">gRPC</span>
-            <span class="tag">Kafka</span>
-            <span class="tag">MariaDB</span>
-            <span class="tag">Docker</span>
-            <span class="tag">Kubernetes</span>
-            <span class="tag">Prometheus</span>
-            <span class="tag">Grafana</span>
-            <span class="tag">Linux</span>
-            <span class="tag">GitLab / GitHub</span>
-            <span class="tag">IBM Cloud</span>
-            <span class="tag">Ansible</span>
-            <span class="tag">HAProxy</span>
-          </div>
-        </div>
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="sectionHead">
+        <h2>Contact</h2>
+        <span class="badge">Let’s connect</span>
+      </div>
 
-        <!-- CERTIFICATIONS -->
-        <div class="section">
-          <div class="sectionHead">
-            <h2>Certifications</h2>
-            <span class="badge">Red Hat • IBM</span>
-          </div>
-          <ul style="margin-top:0;">
-            <li><b>IBM Certified Advocate – Cloud v2</b> (98%)</li>
-            <li><b>RHCSA</b> (300/300)</li>
-            <li><b>Red Hat Specialist in Ansible (EX407)</b> (218/300)</li>
-            <li><b>RHCE</b> (257/300)</li>
-            <li><b>CORE JAVA</b> — NIIT</li>
-          </ul>
-        </div>
-
-        <!-- ACHIEVEMENTS -->
-        <div class="section">
-          <div class="sectionHead">
-            <h2>Achievements</h2>
-            <span class="badge">Highlights</span>
-          </div>
-          <ul style="margin-top:0;">
-            <li>Performer of the Month <b>4 times</b> in 1.5 years.</li>
-            <li>Showcased startup idea at <b>JAZBAA 1.0</b> (IIEC).</li>
-            <li>Among the first to clear <b>RHCSA on RHEL 8</b>.</li>
-          </ul>
-        </div>
-
-        <!-- CONTACT -->
-        <div class="section" id="contact">
-          <div class="sectionHead">
-            <h2>Contact</h2>
-            <span class="badge">Let’s talk</span>
-          </div>
-
-          <div class="tags" style="gap:12px;">
-            <a class="linkBtn" href="mailto:tanshai.saxena@gmail.com">✉️ Email</a>
-            <a class="linkBtn" href="tel:+919580838969">📞 Call</a>
-            <a class="linkBtn" href="https://www.linkedin.com/in/tanshai-saxena-55634545/" target="_blank" rel="noreferrer">🔗 LinkedIn</a>
-          </div>
-
-          <p class="muted" style="margin-top:12px;">
-            Prefer a PDF? Use the <b>Download Resume</b> button at the top.
-          </p>
-        </div>
-      </aside>
-
+      <div class="ctaRow">
+        <a class="btn" href="mailto:tanshai.saxena@gmail.com">✉️ tanshai.saxena@gmail.com</a>
+        <a class="btn" href="tel:+919580838969">📞 +91-9580838969</a>
+        <a class="btn" href="https://www.linkedin.com/in/tanshai-saxena-55634545/" target="_blank" rel="noreferrer">🔗 LinkedIn</a>
+      </div>
     </section>
 
     <footer class="footer">
-      © <span id="year"></span> Tanshai Saxena • Portfolio Website
+      © <span id="year"></span> Tanshai Saxena • Built on GitHub Pages
     </footer>
 
   </div>
@@ -731,34 +525,20 @@
     // Footer year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Theme: saved in localStorage
+    // Theme toggle (saved)
     const root = document.documentElement;
-    const toggleBtn = document.getElementById("themeToggle");
-    const themeText = document.getElementById("themeText");
+    const toggle = document.getElementById("themeToggle");
 
-    function setTheme(theme){
-      root.setAttribute("data-theme", theme);
-      localStorage.setItem("theme", theme);
-
-      if(theme === "dark"){
-        themeText.textContent = "Light";
-        toggleBtn.firstChild.textContent = "🌙 ";
-      }else{
-        themeText.textContent = "Dark";
-        toggleBtn.firstChild.textContent = "☀️ ";
-      }
+    function setTheme(t){
+      root.setAttribute("data-theme", t);
+      localStorage.setItem("theme", t);
+      toggle.textContent = (t === "dark") ? "☀️ Theme" : "🌙 Theme";
     }
 
-    // default theme
     const saved = localStorage.getItem("theme");
-    if(saved){
-      setTheme(saved);
-    }else{
-      // Default: dark (looks premium)
-      setTheme("dark");
-    }
+    setTheme(saved ? saved : "dark");
 
-    toggleBtn.addEventListener("click", () => {
+    toggle.addEventListener("click", () => {
       const current = root.getAttribute("data-theme");
       setTheme(current === "dark" ? "light" : "dark");
     });
