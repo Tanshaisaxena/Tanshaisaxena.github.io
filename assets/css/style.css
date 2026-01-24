@@ -912,3 +912,171 @@ footer {
     margin-top: 6px;
   }
 }
+/* =========================================================
+   FIXES: Dark mode link visibility + Dynamic Animated Background
+   Paste at END of style.css
+========================================================= */
+
+/* ---------- Stronger animated background (visible in both modes) ---------- */
+body {
+  position: relative;
+}
+
+/* Animated gradient base layer */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+
+  background: linear-gradient(
+    120deg,
+    rgba(37, 99, 235, 0.22),
+    rgba(34, 197, 94, 0.18),
+    rgba(99, 102, 241, 0.20),
+    rgba(244, 63, 94, 0.12)
+  );
+  background-size: 350% 350%;
+  animation: gradientShift 14s ease infinite;
+}
+
+/* Floating blobs layer (dynamic motion) */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+
+  background:
+    radial-gradient(circle at 15% 20%, rgba(37, 99, 235, 0.35), transparent 45%),
+    radial-gradient(circle at 85% 25%, rgba(34, 197, 94, 0.28), transparent 45%),
+    radial-gradient(circle at 50% 90%, rgba(99, 102, 241, 0.30), transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(244, 63, 94, 0.18), transparent 55%);
+  filter: blur(18px);
+  animation: blobFloat 10s ease-in-out infinite alternate;
+  opacity: 0.85;
+}
+
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes blobFloat {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(-35px, -25px, 0) scale(1.08); }
+}
+
+/* ---------- Make sections look premium over background ---------- */
+.section {
+  position: relative;
+}
+
+.section .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Make all cards more readable on dark background */
+.timeline-item,
+.project-card,
+.skill-category,
+.contact-item,
+.contact-form,
+.about-text {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+}
+
+/* ---------- Link visibility improvements (especially dark mode) ---------- */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Force contact links and footer links to be readable */
+.contact-detail a,
+.footer-bottom a {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+/* In dark mode, make links brighter */
+.dark-mode a {
+  color: #7dd3fc; /* bright sky */
+}
+
+.dark-mode a:hover {
+  color: #a5b4fc; /* soft violet */
+}
+
+/* Make nav links readable in dark mode */
+.dark-mode .nav-link {
+  color: var(--text-color);
+}
+
+.dark-mode .nav-link:hover {
+  background: rgba(96, 165, 250, 0.18);
+  color: #7dd3fc;
+}
+
+/* Social icons visibility */
+.dark-mode .social-link {
+  color: #e2e8f0;
+  border-color: rgba(226, 232, 240, 0.18);
+}
+
+/* Tech tags contrast */
+.dark-mode .tech-tag {
+  background: rgba(96, 165, 250, 0.18);
+  color: #e2e8f0;
+}
+
+/* Skill tags contrast */
+.dark-mode .skill-tag {
+  background: rgba(96, 165, 250, 0.16);
+  color: #e2e8f0;
+}
+
+/* Buttons: keep readable in dark mode */
+.dark-mode .secondary-btn {
+  color: #7dd3fc;
+  border-color: rgba(226, 232, 240, 0.18);
+  background: rgba(15, 23, 42, 0.25);
+}
+
+/* Improve text contrast in cards */
+.timeline-description,
+.project-description,
+.about-text p,
+.contact-detail p {
+  color: var(--text-light);
+}
+
+/* ---------- Ensure particles are visible above background ---------- */
+#particles-js {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.65;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* ---------- Reduce motion for accessibility ---------- */
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  body::after {
+    animation: none !important;
+  }
+}
