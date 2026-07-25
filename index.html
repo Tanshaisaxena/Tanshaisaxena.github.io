@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tanshai Saxena | Backend Developer</title>
+  <title>Tanshai Saxena | Senior Backend Engineer</title>
 
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="icon" href="assets/images/favicon.png" />
@@ -60,11 +60,11 @@
     <div class="hero-content">
       <div class="hero-text">
         <h1>Hi, I'm <span class="highlight">Tanshai Saxena</span></h1>
-        <h2>Backend Software Developer</h2>
+        <p class="hero-eyebrow"><i class="fa-solid fa-location-dot"></i> India · Open to backend engineering opportunities</p>
+        <h2>Senior Backend Engineer</h2>
         <p>
-          Backend Developer with 5 years of experience in <b>Golang</b> and <b>Python</b>.
-          Skilled in building <b>microservices</b>, <b>distributed systems</b>, REST APIs, and automation workflows.
-          Strong focus on system design, observability, API performance, and cloud-native backend development.
+          Senior backend engineer with 5+ years of experience building cloud-native services with <b>Golang</b> and <b>Python</b>.
+          I design resilient <b>microservices</b>, event-driven workflows, and APIs—with a focus on observability, performance, and production reliability.
         </p>
 
         <div class="hero-buttons">
@@ -103,14 +103,15 @@
         <div class="about-text">
           <p>
             I’m a backend engineer who enjoys designing and building systems that work reliably in production.
-            My work spans workflow orchestration, Kafka-based async processing, microservices on Kubernetes,
-            and strong observability using Prometheus and Grafana.
+            I build dependable backend platforms—from workflow orchestration and Kafka-based asynchronous processing
+            to microservices running on Kubernetes. I enjoy turning complex production problems into measurable,
+            maintainable systems through thoughtful design, observability, and automation.
           </p>
 
           <div class="about-details">
             <div class="detail-item">
               <i class="fa-solid fa-code"></i>
-              <span><b>Primary:</b> Golang, Microservices</span>
+              <span><b>Primary:</b> Golang, Python</span>
             </div>
             <div class="detail-item">
               <i class="fa-solid fa-network-wired"></i>
@@ -118,11 +119,11 @@
             </div>
             <div class="detail-item">
               <i class="fa-solid fa-database"></i>
-              <span><b>Databases:</b> MariaDB, SQL</span>
+              <span><b>Platforms:</b> Kubernetes, IBM Cloud</span>
             </div>
             <div class="detail-item">
               <i class="fa-solid fa-chart-line"></i>
-              <span><b>Obs:</b> Prometheus, Grafana</span>
+              <span><b>Reliability:</b> Prometheus, Grafana, pprof</span>
             </div>
           </div>
         </div>
@@ -142,36 +143,39 @@
         <div class="timeline-item">
           <div class="timeline-header">
             <div class="timeline-title">Senior Associate Consultant</div>
-            <div class="timeline-period">Apr 2025 – Current</div>
+            <div class="timeline-period">Apr 2025 – Present</div>
           </div>
           <div class="timeline-company">Infosys Limited</div>
           <div class="timeline-description">
-            Microservices orchestration platform with Kafka messaging, execution engines, and strong reliability focus.
+            Building a cloud-native orchestration platform with distributed workflow execution, secure service communication,
+            and an observability-first reliability focus.
           </div>
           <ul class="timeline-achievements">
-            <li>Built Router Service to orchestrate multi-phase workflows (dependency resolution, task decomposition, payload generation).</li>
-            <li>Implemented Kafka producers/consumers with JSON request/response handling and task-level timeouts.</li>
-            <li>Developed Executor Service for engine lifecycle (timeouts, retries, error propagation) and integrated WASM modules from OCI registries.</li>
-            <li>Optimized MariaDB persistence for orchestration state using efficient SQL + Go data-access patterns.</li>
-            <li>Improved observability using Prometheus metrics, Grafana dashboards, Kubernetes probes/logs, and pprof profiling.</li>
+            <li>Designed and developed a Router Service for multi-phase product-dimensioning workflows, including dependency resolution, task decomposition, and distributed execution.</li>
+            <li>Implemented asynchronous Router-to-Executor communication using Kafka producers and consumers, with retries and timeout control for reliable workflow execution.</li>
+            <li>Developed an Executor Service to manage engine lifecycle, including timeouts, retries, error propagation, and WASM modules sourced from OCI registries.</li>
+            <li>Optimized MariaDB persistence for workflow metadata and orchestration state with efficient SQL and Go data-access patterns.</li>
+            <li>Implemented mutual TLS for secure inter-service communication across Kubernetes and data layers.</li>
+            <li>Improved observability with Prometheus, Grafana, Kubernetes health probes, and pprof profiling; added vulnerability checks and CI coverage gates.</li>
           </ul>
         </div>
 
         <div class="timeline-item">
           <div class="timeline-header">
             <div class="timeline-title">Backend Software Developer</div>
-            <div class="timeline-period">Oct 2022 – Mar 2025</div>
+            <div class="timeline-period">Apr 2022 – Mar 2025</div>
           </div>
           <div class="timeline-company">TCS (IBM Cloud Project)</div>
           <div class="timeline-description">
             Backend automation and monitoring services improving scalability, reliability, and operational readiness.
           </div>
           <ul class="timeline-achievements">
-            <li>Designed backend automation + monitoring services in Golang improving maintainability.</li>
-            <li>Built alert automation system generating event-driven alerts from logs and metrics.</li>
-            <li>Implemented Prometheus exporters, custom metrics, and alert rules for proactive detection.</li>
-            <li>Automated Service-ID provisioning and onboarding flows, reducing provisioning delays.</li>
-            <li>Led migration from LogDNA to IBM Cloud Logs (ICL) ensuring smooth transition.</li>
+            <li>Designed and improved backend automation and monitoring services in Golang for internal cloud-platform components.</li>
+            <li>Built event-driven alert automation from logs and metrics, reducing manual workload and improving issue-detection speed.</li>
+            <li>Implemented custom Prometheus metrics, exporter logic, and alert rules for deeper backend-pipeline visibility.</li>
+            <li>Automated Service-ID provisioning and onboarding flows through backend scripts and APIs, reducing delays and standardizing production readiness.</li>
+            <li>Led the backend migration from LogDNA to IBM Cloud Logs, maintaining data consistency and backward compatibility for internal tools.</li>
+            <li>Built health checks and Grafana/Prometheus dashboards to monitor service uptime, backend performance, and reliability indicators.</li>
           </ul>
         </div>
 
@@ -185,8 +189,10 @@
             Automation and validation scripts for 3G/4G network elements and operational improvements.
           </div>
           <ul class="timeline-achievements">
-            <li>Optimized Python validation scripts ensuring stable connectivity and functional compliance.</li>
-            <li>Reduced ticket volume by 27% and improved KPI to 99.30% for Nokia 3G operations.</li>
+            <li>Refined and executed Python-based validation scripts for 3G/4G network elements, ensuring stable connectivity and functional compliance.</li>
+            <li>Developed automation scripts to verify network connectivity between nodes, reducing manual troubleshooting effort.</li>
+            <li>Contributed to automation initiatives and basic Kubernetes operations to streamline processes.</li>
+            <li>Reduced ticket volume by 27% and improved the Nokia 3G operations KPI to 99.30%.</li>
           </ul>
         </div>
 
@@ -200,9 +206,10 @@
             Linux + automation foundation with Ansible, Docker, Kubernetes and IoT exposure.
           </div>
           <ul class="timeline-achievements">
-            <li>Attained Red Hat Linux + Ansible certifications and hands-on automation.</li>
-            <li>Automated HAProxy and Hadoop cluster using Ansible.</li>
-            <li>Worked on IoT project “Pyke” for RFID-based toll payment automation.</li>
+            <li>Became proficient in Red Hat Linux, RHEL 8, operating systems, and Ansible.</li>
+            <li>Gained experience creating, setting up, and managing virtual machines.</li>
+            <li>Automated HAProxy and Hadoop clusters using Ansible and explored Docker and Kubernetes fundamentals.</li>
+            <li>Built the Pyke IoT project for RFID-based toll-payment automation using Raspberry Pi.</li>
           </ul>
         </div>
 
@@ -216,8 +223,8 @@
             Learned AWS fundamentals and Git/version control best practices.
           </div>
           <ul class="timeline-achievements">
-            <li>Built foundational understanding of AWS setup and deployments.</li>
-            <li>Improved development workflow using Git and version control practices.</li>
+            <li>Built foundational knowledge of AWS infrastructure setup and application deployments.</li>
+            <li>Learned version-control principles and workflows with Git.</li>
           </ul>
         </div>
 
@@ -244,6 +251,7 @@
             <span class="skill-tag">REST APIs</span>
             <span class="skill-tag">gRPC</span>
             <span class="skill-tag">Concurrency</span>
+            <span class="skill-tag">Protocol Buffers</span>
           </div>
         </div>
 
@@ -256,6 +264,8 @@
             <span class="skill-tag">IBM Cloud</span>
             <span class="skill-tag">GitLab</span>
             <span class="skill-tag">GitHub</span>
+            <span class="skill-tag">OCI Registries</span>
+            <span class="skill-tag">mTLS</span>
           </div>
         </div>
 
@@ -275,6 +285,8 @@
             <span class="skill-tag">Grafana</span>
             <span class="skill-tag">Logging</span>
             <span class="skill-tag">pprof</span>
+            <span class="skill-tag">Integration Testing</span>
+            <span class="skill-tag">CI/CD Pipelines</span>
           </div>
         </div>
       </div>
@@ -292,17 +304,18 @@
       <div class="projects-grid">
         <div class="project-card">
           <div class="project-content">
-            <div class="project-title">Router + Executor Platform</div>
+            <div class="project-title">Workflow Orchestration Platform</div>
             <div class="project-period">Infosys</div>
             <div class="project-description">
-              Orchestration platform for multi-phase workflows with Kafka messaging, MariaDB persistence, execution lifecycle management,
-              and observability-first design.
+              Distributed orchestration platform for multi-phase workflows with Kafka messaging, MariaDB persistence,
+              secure mTLS communication, engine lifecycle management, and observability-first design.
             </div>
             <div class="project-tech">
               <span class="tech-tag">Golang</span>
               <span class="tech-tag">Kafka</span>
               <span class="tech-tag">Kubernetes</span>
               <span class="tech-tag">MariaDB</span>
+              <span class="tech-tag">mTLS</span>
             </div>
           </div>
         </div>
@@ -325,10 +338,29 @@
 
         <div class="project-card">
           <div class="project-content">
+            <div class="project-title">AI-Powered To-Do Assistant</div>
+            <div class="project-period">Personal Project</div>
+            <div class="project-description">
+              AI-driven task assistant that provides contextual task summaries and responses using retrieval-augmented generation (RAG),
+              semantic search, embeddings, and LLM APIs.
+            </div>
+            <div class="project-tech">
+              <span class="tech-tag">Golang</span>
+              <span class="tech-tag">RAG</span>
+              <span class="tech-tag">LLMs</span>
+              <span class="tech-tag">Semantic Search</span>
+            </div>
+            <a class="project-link" href="https://github.com/Tanshaisaxena/AI_Powered_To_Do_Assistant" target="_blank" rel="noreferrer">View on GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-content">
             <div class="project-title">Smart Cart</div>
             <div class="project-period">Academic / IoT</div>
             <div class="project-description">
-              Smart checkout cart system using RFID scanning and automation to reduce billing wait times and improve customer experience.
+              Integrated smart-cart system that streamlines checkout with automatic bill calculation. Uses RFID tag scanning,
+              Arduino UNO configuration, and ESP32-CAM barcode scanning to reduce billing wait times.
             </div>
             <div class="project-tech">
               <span class="tech-tag">IoT</span>
@@ -366,6 +398,16 @@
       </div>
 
       <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-content">
+            <div class="project-title">Infosys Certified Professional — Generative AI for All</div>
+            <div class="project-period">Certification</div>
+            <div class="project-description">
+              Validated understanding of generative AI concepts, responsible use, and practical applications.
+            </div>
+          </div>
+        </div>
+
         <div class="project-card">
           <div class="project-content">
             <div class="project-title">IBM Certified Advocate - Cloud v2</div>
@@ -429,16 +471,23 @@
 
       <div class="timeline" style="max-width: 900px;">
         <div class="timeline-item">
+          <div class="timeline-title">Infosys RISE Insta Award</div>
+          <div class="timeline-description">
+            Received in March 2025 for resolving critical security vulnerabilities and improving service reliability across backend components.
+          </div>
+        </div>
+
+        <div class="timeline-item">
           <div class="timeline-title">Performer of the Month (4x)</div>
           <div class="timeline-description">
-            Recognized as Performer of the Month 4 times within 1.5 years for consistent impact and delivery.
+            Recognized as Performer of the Month four times in 1.5 years at Ericsson for consistent impact and delivery.
           </div>
         </div>
 
         <div class="timeline-item">
           <div class="timeline-title">Startup Showcase - JAZBAA 1.0</div>
           <div class="timeline-description">
-            Selected and showcased startup idea at JAZBAA 1.0 in Jaipur under IIEC community.
+            Selected and showcased a startup idea at the first technology-based startup event, JAZBAA 1.0, in Jaipur under the IIEC community.
           </div>
         </div>
 
@@ -452,7 +501,7 @@
         <div class="timeline-item">
           <div class="timeline-title">Among first to clear RHCSA on RHEL 8</div>
           <div class="timeline-description">
-            Achieved recognition for being among the first few in the world to clear RHCSA on RHEL version 8.
+            Achieved recognition as among the first few in the world to clear RHCSA on RHEL version 8.
           </div>
         </div>
 
